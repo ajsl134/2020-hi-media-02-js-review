@@ -58,85 +58,97 @@ console.log(b.y);
 */
 
 
-/********** 변수, 함수, 배열, 객체 **********/
-/********** 변수(variable) **********/
-//var a = '?'
-// primittive type : 숫자(Number), 문자(String), 불린(Boolean), null, undefined
+/********** 변수, 함수, 배열, 객체 ***********/
+/********** 변수(variable) ***********/
+// var a = '?'
+// primittive type: 숫자(Number), 문자(String), 불린(Boolean), null, undefined
 // reference type : 배열(Array), 객체(Object)
-
-var a; // undefined
+var a;
 if(a) console.log(a);
 
-var a = 1; //숫자
+var a = 1;
 if(a) console.log(a);
 
-var a = '1'; //문자
+var a = '1';
 if(a) console.log(a);
 
-var a = true; 
+var a = true;
 if(a) console.log(a);
 
 var a = null; // 빈값
 if(a) console.log(a);
 
+
 // false == 0, '', null, undefined
 if(a) {
-    console.log("Hi~")
+	console.log("Hi~");
 }
 
+
+/********** 함수(function) ***********/
 console.clear();
 
-/********** 함수(function) **********/
-
-// 함수선언문 - Hoisting(끌어올리다.)
+// 함수선언문 - Hoisting(끌어올리다)
 b();
-function b(){
-    console.log('B');
+function b() {
+	console.log('B');
 }
 
 // 함수표현식
 var c = function(){
-    console.log('C');
+	console.log('C');
 }
 c();
 
 // 함수의 인자(Arguments)
-function d(x,y){
-   x * y;
+function d(x, y) {
+	x * y;
 }
 
 function sum(x, y, cb) {
-    var hap = x + y;
-    cb(hap);
+	var hap = x + y;
+	cb(hap);
 }
 
 sum(10, 20, function(r){
-    alert("10 더하기 20은 " + r + "입니다.")
+	console.log("10 더하기 20 은 " + r + " 입니다.");
 });
 
-/* var jQuery = function(str){
-    this = new Array();
-    this[0] = document.querySelector(str);
-    this.prototype.click = function(fn){
-        fn();
-    }
-    return this;
-} */
+// 움직여/원위치
+// $("객체").stop().animate({}, 1000, "swing | linear", function(){});
 
-
-//움직여, 원위치
-// $("객체").stop().animate({}, 1000, "swing", function(){});
 $("#bt10").click(function(){
-    $("#img3").stop().animate({"left": "800px"}, 2000, function(){
-        $(this).css("opacity", 0.5);
-    })
+	var target = $("#img3").parent().width() - $("#img3").width();
+	$("#img3").stop().animate({"left": target + "px"}, 2000, function(){
+		$(this).css("opacity", 0.5);
+	});
 });
-
 $("#bt11").click(function(){
-    $("#img3").stop().animate({"left": "0"}, 1000)
+	$("#img3").stop().animate({"left": 0}, 2000, function(){
+		$(this).css("opacity", 1);
+	});
 });
 
-reservacation('ajsl134', 'c4', function(err){
-    if(err) alert()
-});
+/*
+reservation('booldook', 'c4', function(err){
+	if(err) alert()
+	else {
+		asdklfjkasdfj
+	}
+})
 
+function reservation(id, num, cb) {
+	//....
+	if(pay) cb();
+	else cb(err);
+}
+
+var jQuery = function(str){
+	this = new Array();
+	this[0] = document.querySelector(str);
+	this.prototype.click = function(fn){
+		fn();
+	}
+	return this;
+}
+*/
